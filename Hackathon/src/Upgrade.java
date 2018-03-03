@@ -191,7 +191,10 @@ public class Upgrade extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton3ActionPerformed
-
+    public void set(String User,String Dept)
+    {
+        
+    }
     /**
      * @param args the command line arguments
      */

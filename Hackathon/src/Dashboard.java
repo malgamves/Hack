@@ -44,6 +44,7 @@ public class Dashboard extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/1f464.png"))); // NOI18N
 
@@ -214,7 +215,13 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
     }
-
+public void set(String User,String Dept)
+    {
+       jLabel2.setText(User);
+       jLabel3.setText("Account Personel");
+       jLabel4.setText(Dept+" DEPT");
+       
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

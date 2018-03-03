@@ -54,6 +54,7 @@ public class Login extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel3.setText("Welcome to Fuel Management System");
@@ -301,7 +302,10 @@ public class Login extends javax.swing.JFrame {
                 if(uname.equals(user) || password.equals(pass))
                 {
                     jLabel6.setText("Login Successful");
-                   
+                   Dashboard d=new Dashboard();
+                  
+                   d.set(uname,pass);
+                   d.setVisible(true);
             }    }   } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
