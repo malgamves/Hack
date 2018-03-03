@@ -153,6 +153,11 @@ public class HA_Dashboard extends javax.swing.JFrame {
         );
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/1f4a1.png"))); // NOI18N
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -198,6 +203,11 @@ public class HA_Dashboard extends javax.swing.JFrame {
         );
 
         jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/1f5fa.png"))); // NOI18N
+        jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton12MouseClicked(evt);
+            }
+        });
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton12ActionPerformed(evt);
@@ -243,6 +253,11 @@ public class HA_Dashboard extends javax.swing.JFrame {
         );
 
         jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/1f4a7.png"))); // NOI18N
+        jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton11MouseClicked(evt);
+            }
+        });
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton11ActionPerformed(evt);
@@ -290,6 +305,11 @@ public class HA_Dashboard extends javax.swing.JFrame {
         );
 
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/1f68c.png"))); // NOI18N
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -335,6 +355,11 @@ public class HA_Dashboard extends javax.swing.JFrame {
         );
 
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/1f4b0.png"))); // NOI18N
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton10MouseClicked(evt);
+            }
+        });
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
@@ -382,6 +407,11 @@ public class HA_Dashboard extends javax.swing.JFrame {
         jLabel9.setText("jLabel9");
 
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/1f4d8.png"))); // NOI18N
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -553,6 +583,48 @@ public class HA_Dashboard extends javax.swing.JFrame {
         Help h =new Help();
         h.setVisible(true);
     }//GEN-LAST:event_jMenu2MouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        // TODO add your handling code here:
+        Dept_Report dp = new Dept_Report();
+        dp.set(jLabel16.getText());
+        dp.setVisible(true);
+    }//GEN-LAST:event_jButton7MouseClicked
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        // TODO add your handling code here:
+        Dept_Report dp = new Dept_Report();
+        dp.set(jLabel22.getText());
+        dp.setVisible(true);
+    }//GEN-LAST:event_jButton8MouseClicked
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        // TODO add your handling code here:
+        Dept_Report dp = new Dept_Report();
+        dp.set(jLabel23.getText());
+        dp.setVisible(true);
+    }//GEN-LAST:event_jButton9MouseClicked
+
+    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
+        // TODO add your handling code here:
+        Dept_Report dp = new Dept_Report();
+        dp.set(jLabel24.getText());
+        dp.setVisible(true);
+    }//GEN-LAST:event_jButton10MouseClicked
+
+    private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
+        // TODO add your handling code here:
+        Dept_Report dp = new Dept_Report();
+        dp.set(jLabel25.getText());
+        dp.setVisible(true);
+    }//GEN-LAST:event_jButton11MouseClicked
+
+    private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
+        // TODO add your handling code here:
+        Dept_Report dp = new Dept_Report();
+        dp.set(jLabel26.getText());
+        dp.setVisible(true);
+    }//GEN-LAST:event_jButton12MouseClicked
 
     /**
      * @param args the command line arguments
