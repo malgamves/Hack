@@ -200,7 +200,10 @@
     </Container>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="C:\Users\malga\Desktop\Hackerthon\PNG\48\synchronize-48.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Upgrade"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">

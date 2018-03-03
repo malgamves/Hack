@@ -117,7 +117,8 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap(53, Short.MAX_VALUE))
         );
 
-        jButton1.setText("jButton1");
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\malga\\Desktop\\Hackerthon\\PNG\\48\\synchronize-48.png")); // NOI18N
+        jButton1.setText("Upgrade");
 
         jButton2.setText("jButton2");
 
