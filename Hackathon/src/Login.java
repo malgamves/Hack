@@ -1,4 +1,12 @@
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /*
@@ -75,7 +83,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setText("jLabel6");
+        jLabel6.setText("Login Status");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("Forgot Password?");
@@ -87,14 +95,13 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
-                        .addComponent(jLabel6))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(67, 67, 67)
-                        .addComponent(jLabel4)))
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(97, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -125,7 +132,7 @@ public class Login extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextField1)
                             .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))))
-                .addGap(64, 64, 64))
+                .addGap(55, 55, 55))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,8 +234,9 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER){
             String uname=jTextField1.getText();
-            String password=jTextField2.getText();
-            if(uname.isEmpty() || password.isEmpty())
+            char[] password=jPasswordField1.getPassword();
+           
+            if(uname.isEmpty() || password.length==0)
             {
                 JOptionPane.showMessageDialog(rootPane,"Username or Password can't be empty!!");
             }
@@ -242,11 +250,63 @@ public class Login extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         String uname=jTextField1.getText();
-        String password=jTextField2.getText();
-        if(uname.isEmpty() || password.isEmpty())
+        char[] password=jPasswordField1.getPassword();
+           
+            if(uname.isEmpty() || password.length==0)
         {
             JOptionPane.showMessageDialog(rootPane,"Username or Password can't be empty!!");
         }
+        try {
+            // TODO add your handling code here:
+            //Class.forName("oracle.jdbc.OracleDriver");
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       Connection con = null;
+        try {
+            con = DriverManager.getConnection(  
+                    "jdbc:mysql://localhost:3306/vmc","root","");
+        } catch (SQLException ex) {
+            Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+            ResultSet rs = null;
+        try {
+            rs = stmt.executeQuery("SELECT USERNAME,PASSWORD FROM login;");
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String user="",pass="";
+        try {
+            while(rs.next()){
+                try {
+                    //Retrieve by column name
+                    
+                    user = rs.getString("USERNAME");
+                } catch (SQLException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                try {
+                    pass =rs.getString("PASSWORD");
+                } catch (SQLException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                if(uname.equals(user) || password.equals(pass))
+                {
+                    jLabel6.setText("Login Successful");
+                   
+            }    }   } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          
+             
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**
