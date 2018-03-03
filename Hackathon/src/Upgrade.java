@@ -22,7 +22,11 @@ import javax.swing.table.DefaultTableModel;
  * @author malga
  */
 public class Upgrade extends javax.swing.JFrame {
-
+    String dept="";
+    public void set(String dep)
+    {
+        dept=dep;
+    }
     /**
      * Creates new form Upgrade
      */
@@ -148,9 +152,9 @@ public class Upgrade extends javax.swing.JFrame {
                                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(235, 235, 235))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton2)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(91, 91, 91))
@@ -190,14 +194,15 @@ public class Upgrade extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         try {
             // TODO add your handling code here:
-            Class.forName("oracle.jdbc.driver.OracleDriver");
+            //Class.forName("oracle.jdbc.OracleDriver");
+            Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
         }
        Connection con = null;
         try {
             con = DriverManager.getConnection(  
-                    "jdbc:oracle:thin:@localhost:1521:xe","Daniel","Daniel");
+                    "jdbc:mysql://localhost:3306/vmc","root","");
         } catch (SQLException ex) {
             Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -207,7 +212,9 @@ public class Upgrade extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+       
+            ResultSet rs = null;
+        PreparedStatement preparedStmt = null;
         int flag=0;
         for(int i=0;i<jTable1.getRowCount();i++)
         {
@@ -219,23 +226,134 @@ public class Upgrade extends javax.swing.JFrame {
                 break;
             }
         }
-        }    
+        }   
+        String Vehicle="",Description="",init,fin,diff,amount,apl; 
         if(flag==0)
-        {   String query="INSERT INTO ";
+        {   
             ArrayList<String> list=new ArrayList<String>();
             for(int i=0;i<jTable1.getRowCount();i++)
-            {   query="INSERT INTO (VEHICLE"
+            {   
                 for(int j=0;j<jTable1.getColumnCount();j++)
                 {
                     list.add((String) jTable1.getValueAt(i,j));
                 }
+                Vehicle=list.get(0);
+                init=list.get(1);
+                fin=list.get(2);
+                diff=String.valueOf(Integer.parseInt(fin)-Integer.parseInt(init));
+                Description=list.get(3);
+                amount=list.get(5);
+                apl=list.get(6);
+                if(dept.equals("TRANSPORT"))
+                        {String query="INSERT INTO transport(VEHICLENO,INITIAL,FINAL,DESCRIPTION,DIFFERENCE,AMOUNT) values (?,?,?,?,?,?))";
                 try {
-            ResultSet rs=stmt.executeQuery("select * from emp");
+            preparedStmt = con.prepareStatement(query);
+            preparedStmt.setString(1,Vehicle);
+            preparedStmt.setString(2,init);
+            preparedStmt.setString(3,fin);
+            preparedStmt.setString(4,Description);
+            preparedStmt.setString(5,diff);
+            preparedStmt.setString(6,amount);
+           // preparedStmt.setString(7,apl);
+            preparedStmt.addBatch();
         } catch (SQLException ex) {
             Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
         }
             }
+            else if(dept.equals("WATER"))
+                        {String query="INSERT INTO water(VEHICLENO,INITIAL,FINAL,DESCRIPTION,DIFFERENCE,AMOUNT) values (?,?,?,?,?,?)";
+                try {
+            preparedStmt = con.prepareStatement(query);
+            preparedStmt.setString(1,Vehicle);
+            preparedStmt.setString(2,init);
+            preparedStmt.setString(3,fin);
+            preparedStmt.setString(4,Description);
+            preparedStmt.setString(5,diff);
+            preparedStmt.setString(6,amount);
+          //  preparedStmt.setString(7,apl);
+            preparedStmt.addBatch();
+        } catch (SQLException ex) {
+            Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
         }
+            }else if(dept.equals("SURVEY"))
+                        {String query="INSERT INTO survey(VEHICLENO,INITIAL,FINAL,DESCRIPTION,DIFFERENCE,AMOUNT) values (?,?,?,?,?,?)";
+                try {
+            preparedStmt = con.prepareStatement(query);
+            preparedStmt.setString(1,Vehicle);
+            preparedStmt.setString(2,init);
+            preparedStmt.setString(3,fin);
+            preparedStmt.setString(4,Description);
+            preparedStmt.setString(5,diff);
+            preparedStmt.setString(6,amount);
+          //  preparedStmt.setString(7,apl);
+            preparedStmt.addBatch();
+        } catch (SQLException ex) {
+            Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            }else if(dept.equals("EDUCATION"))
+                        {String query="INSERT INTO education(VEHICLENO,INITIAL,FINAL,DESCRIPTION,DIFFERENCE,AMOUNT) values (?,?,?,?,?,?)";
+                try {
+            preparedStmt = con.prepareStatement(query);
+            preparedStmt.setString(1,Vehicle);
+            preparedStmt.setString(2,init);
+            preparedStmt.setString(3,fin);
+            preparedStmt.setString(4,Description);
+            preparedStmt.setString(5,diff);
+            preparedStmt.setString(6,amount);
+          //  preparedStmt.setString(7,apl);
+            preparedStmt.addBatch();
+        } catch (SQLException ex) {
+            Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            }else if(dept.equals("ELECTRICITY"))
+                        {String query="INSERT INTO electricity(VEHICLENO,INITIAL,FINAL,DESCRIPTION,DIFFERENCE,AMOUNT) values (?,?,?,?,?,?)";
+                try {
+            preparedStmt = con.prepareStatement(query);
+            preparedStmt.setString(1,Vehicle);
+            preparedStmt.setString(2,init);
+            preparedStmt.setString(3,fin);
+            preparedStmt.setString(4,Description);
+            preparedStmt.setString(5,diff);
+            preparedStmt.setString(6,amount);
+          //  preparedStmt.setString(7,apl);
+            preparedStmt.addBatch();
+        } catch (SQLException ex) {
+            Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            }else if(dept.equals("INCOMETAX"))
+                        {String query="INSERT INTO incometax(VEHICLENO,INITIAL,FINAL,DESCRIPTION,DIFFERENCE,AMOUNT) values (?,?,?,?,?,?)";
+                try {
+            preparedStmt = con.prepareStatement(query);
+            preparedStmt.setString(1,Vehicle);
+            preparedStmt.setString(2,init);
+            preparedStmt.setString(3,fin);
+            preparedStmt.setString(4,Description);
+            preparedStmt.setString(5,diff);
+            preparedStmt.setString(6,amount);
+           // preparedStmt.setString(7,apl);
+            preparedStmt.addBatch();
+        } catch (SQLException ex) {
+            Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            }
+            else{
+                System.out.println("Unsuccessful");
+            }
+                try {
+                    preparedStmt.executeBatch();
+                } catch (SQLException ex) {
+                    Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+        }
+            JOptionPane.showConfirmDialog(rootPane,"Records added successfully");
+            jTable1.removeAll();
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
+            }
+}
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked

@@ -16,7 +16,7 @@ public class Dashboard extends javax.swing.JFrame {
     public Dashboard() {
         initComponents();
     }
-
+String d="";
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -222,6 +222,7 @@ public class Dashboard extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         Upgrade up = new Upgrade();
+        up.set(d);
         up.setVisible(true);
     }//GEN-LAST:event_jButton1MouseClicked
 
@@ -270,7 +271,7 @@ public void set(String User,String Dept)
        jLabel2.setText(User);
        jLabel3.setText("Account Personel");
        jLabel4.setText(Dept+" DEPT");
-       
+       d=Dept;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
