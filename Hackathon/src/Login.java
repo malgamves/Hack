@@ -172,7 +172,7 @@ public class Login extends javax.swing.JFrame {
         jLabel7.setText("Notice");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel8.setText("<html> Citizens can login using \"guest\" as a username and leave the password blank </html>");
+        jLabel8.setText("<html> Citizens can login using \"guest\" button. </html>");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
