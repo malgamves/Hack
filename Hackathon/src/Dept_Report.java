@@ -1,3 +1,12 @@
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,16 +18,80 @@
  * @author malga
  */
 public class Dept_Report extends javax.swing.JFrame {
-    String dept="";
-    public void set(String d)
+    public String dept="";
+    public void set(String d) throws SQLException
     {
         dept=d;
+        jLabel21.setText(dept+" Department");
+        try {
+            // TODO add your handling code here:
+            //Class.forName("oracle.jdbc.OracleDriver");
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       Connection con = null;
+        try {
+            con = DriverManager.getConnection(  
+                    "jdbc:mysql://localhost:3306/vmc","root","");
+        } catch (SQLException ex) {
+            Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ResultSet rs=null;
+        switch (dept) {
+            case "WATER":
+                rs=stmt.executeQuery("SELECT * FROM water;");
+                break;
+            case "ELECTRICITY":
+                rs=stmt.executeQuery("SELECT * FROM electricity;");
+                break;
+            case "EDUCATION":
+                rs=stmt.executeQuery("SELECT * FROM education;");
+                break;
+            case "SURVEY":
+                rs=stmt.executeQuery("SELECT * FROM survey;");
+                break;
+            case "INCOMETAX":
+                rs=stmt.executeQuery("SELECT * FROM incometax;");
+                break;
+            case "TRANSPORT":
+                rs=stmt.executeQuery("SELECT * FROM transport;");
+                break;
+        }
+        int amt=0,maintainance=0;
+        String type="";
+        while(rs.next())
+        {   type=rs.getString("Description");
+            if(type.equals("FUEL"))
+            {
+            amt=amt+Integer.parseInt(rs.getString("AMOUNT"));
+            }
+            else{
+                maintainance=maintainance+Integer.parseInt(rs.getString("AMOUNT"));
+            }
+        }   
+        jLabel11.setText(String.valueOf(amt));
+        jLabel22.setText(String.valueOf(maintainance));
+        
+        while(rs.next())
+        {
+            
+        }
     }
+    
     /**
      * Creates new form Dept_Report
      */
     public Dept_Report() {
         initComponents();
+        
+        
     }
 
     /**
@@ -103,7 +176,7 @@ public class Dept_Report extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("Fuel");
 
         jLabel4.setText("Status:");
 
@@ -161,7 +234,7 @@ public class Dept_Report extends javax.swing.JFrame {
         );
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setText("jLabel2");
+        jLabel2.setText("Mileage");
 
         jLabel5.setText("Status:");
 
@@ -219,7 +292,7 @@ public class Dept_Report extends javax.swing.JFrame {
         );
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("jLabel3");
+        jLabel3.setText("Maintainance");
 
         jLabel6.setText("Status:");
 

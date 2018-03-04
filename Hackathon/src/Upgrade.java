@@ -254,7 +254,7 @@ public class Upgrade extends javax.swing.JFrame {
             preparedStmt.setString(4,Description);
             preparedStmt.setString(5,diff);
             preparedStmt.setString(6,amount);
-           // preparedStmt.setString(7,apl);
+            preparedStmt.setString(7,apl);
             preparedStmt.addBatch();
         } catch (SQLException ex) {
             Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
@@ -270,7 +270,7 @@ public class Upgrade extends javax.swing.JFrame {
             preparedStmt.setString(4,Description);
             preparedStmt.setString(5,diff);
             preparedStmt.setString(6,amount);
-          //  preparedStmt.setString(7,apl);
+            preparedStmt.setString(7,apl);
             preparedStmt.addBatch();
         } catch (SQLException ex) {
             Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
@@ -285,7 +285,7 @@ public class Upgrade extends javax.swing.JFrame {
             preparedStmt.setString(4,Description);
             preparedStmt.setString(5,diff);
             preparedStmt.setString(6,amount);
-          //  preparedStmt.setString(7,apl);
+            preparedStmt.setString(7,apl);
             preparedStmt.addBatch();
         } catch (SQLException ex) {
             Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
@@ -300,7 +300,7 @@ public class Upgrade extends javax.swing.JFrame {
             preparedStmt.setString(4,Description);
             preparedStmt.setString(5,diff);
             preparedStmt.setString(6,amount);
-          //  preparedStmt.setString(7,apl);
+            preparedStmt.setString(7,apl);
             preparedStmt.addBatch();
         } catch (SQLException ex) {
             Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
@@ -315,7 +315,7 @@ public class Upgrade extends javax.swing.JFrame {
             preparedStmt.setString(4,Description);
             preparedStmt.setString(5,diff);
             preparedStmt.setString(6,amount);
-          //  preparedStmt.setString(7,apl);
+            preparedStmt.setString(7,apl);
             preparedStmt.addBatch();
         } catch (SQLException ex) {
             Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
@@ -330,7 +330,7 @@ public class Upgrade extends javax.swing.JFrame {
             preparedStmt.setString(4,Description);
             preparedStmt.setString(5,diff);
             preparedStmt.setString(6,amount);
-           // preparedStmt.setString(7,apl);
+            preparedStmt.setString(7,apl);
             preparedStmt.addBatch();
         } catch (SQLException ex) {
             Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
@@ -360,24 +360,28 @@ public class Upgrade extends javax.swing.JFrame {
         // TODO add your handling code here:
         Login n = new Login();
         n.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jMenu3MouseClicked
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
         // TODO add your handling code here:
         Help h =new Help();
         h.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jMenu2MouseClicked
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
         // TODO add your handling code here:
         Dashboard d=new Dashboard();          
         d.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jMenu1MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
         Dashboard d=new Dashboard();
         d.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -388,6 +392,7 @@ public class Upgrade extends javax.swing.JFrame {
         // TODO add your handling code here:
         Dashboard d=new Dashboard();
         d.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

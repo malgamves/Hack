@@ -1,3 +1,8 @@
+
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -16,7 +21,7 @@ public class HA_Dashboard extends javax.swing.JFrame {
     public HA_Dashboard() {
         initComponents();
     }
-
+String d="";
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -587,42 +592,69 @@ public class HA_Dashboard extends javax.swing.JFrame {
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         // TODO add your handling code here:
         Dept_Report dp = new Dept_Report();
-        dp.set(jLabel16.getText());
+        d=jLabel16.getText();
+        try {
+            dp.set(d);
+        } catch (SQLException ex) {
+            Logger.getLogger(HA_Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         dp.setVisible(true);
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
         // TODO add your handling code here:
         Dept_Report dp = new Dept_Report();
-        dp.set(jLabel22.getText());
+        try {
+            dp.set(jLabel22.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(HA_Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
         dp.setVisible(true);
     }//GEN-LAST:event_jButton8MouseClicked
 
     private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
         // TODO add your handling code here:
         Dept_Report dp = new Dept_Report();
-        dp.set(jLabel23.getText());
+        try {
+            dp.set(jLabel23.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(HA_Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
         dp.setVisible(true);
     }//GEN-LAST:event_jButton9MouseClicked
 
     private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
         // TODO add your handling code here:
         Dept_Report dp = new Dept_Report();
-        dp.set(jLabel24.getText());
+        try {
+            dp.set(jLabel24.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(HA_Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
         dp.setVisible(true);
     }//GEN-LAST:event_jButton10MouseClicked
 
     private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
-        // TODO add your handling code here:
-        Dept_Report dp = new Dept_Report();
-        dp.set(jLabel25.getText());
-        dp.setVisible(true);
+        try {
+            // TODO add your handling code here:
+            Dept_Report dp = new Dept_Report();
+            
+            dp.set(jLabel25.getText());
+        } catch (SQLException ex) {       
+            Logger.getLogger(HA_Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
     }//GEN-LAST:event_jButton11MouseClicked
 
     private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
         // TODO add your handling code here:
         Dept_Report dp = new Dept_Report();
-        dp.set(jLabel26.getText());
+        try {
+            dp.set(jLabel26.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(HA_Dashboard.class.getName()).log(Level.SEVERE, null, ex);
+        }
         dp.setVisible(true);
     }//GEN-LAST:event_jButton12MouseClicked
 

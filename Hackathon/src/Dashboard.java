@@ -205,18 +205,21 @@ String d="";
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         Help h =new Help();
         h.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
         // TODO add your handling code here
         Login n = new Login();
         n.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jMenu3MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
         Dept_Report dp = new Dept_Report();
         dp.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
@@ -224,12 +227,14 @@ String d="";
         Upgrade up = new Upgrade();
         up.set(d);
         up.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
         // TODO add your handling code here:
         Help h =new Help();
         h.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jMenu2MouseClicked
 
     /**
