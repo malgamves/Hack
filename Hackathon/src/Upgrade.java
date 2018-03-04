@@ -227,14 +227,15 @@ public class Upgrade extends javax.swing.JFrame {
             }
         }
         }   
-        String Vehicle="",Description="",init,fin,diff,amount,apl; 
+        String Vehicle="",Description="",init,fin,diff,amount="",apl="",mil="";
+        int mile,fuel,t1,t2,t3;
         if(flag==0)
         {   
             ArrayList<String> list=new ArrayList<String>();
             for(int i=0;i<jTable1.getRowCount();i++)
-            {   
+            {   System.out.print(jTable1.getColumnCount());
                 for(int j=0;j<jTable1.getColumnCount();j++)
-                {
+                {System.out.println(jTable1.getValueAt(i,j),j);
                     list.add((String) jTable1.getValueAt(i,j));
                 }
                 Vehicle=list.get(0);
@@ -244,10 +245,91 @@ public class Upgrade extends javax.swing.JFrame {
                 Description=list.get(3);
                 amount=list.get(5);
                 apl=list.get(6);
-                if(dept.equals("TRANSPORT"))
-                        {String query="INSERT INTO transport(VEHICLENO,INITIAL,FINAL,DESCRIPTION,DIFFERENCE,AMOUNT) values (?,?,?,?,?,?))";
-                try {
-            preparedStmt = con.prepareStatement(query);
+                t1=Integer.valueOf(amount);
+                System.out.println(list.get(6));
+                t2=Integer.parseInt(list.get(6));
+                t3=Integer.valueOf(diff);
+                fuel=t1/t2;
+                mile=t3/fuel;
+                mil=String.valueOf(mile);
+                switch (dept) {
+                    case "TRANSPORT":
+                        {
+                            String query="INSERT INTO transport(VEHICLENO,INITIAL,FINAL,DESCRIPTION,DIFFERENCE,AMOUNT,APL,MILEAGE) values (?,?,?,?,?,?,?,?))";
+                            try {
+                                preparedStmt = con.prepareStatement(query);
+                                preparedStmt.setString(1,Vehicle);
+                                preparedStmt.setString(2,init);
+                                preparedStmt.setString(3,fin);
+                                preparedStmt.setString(4,Description);
+                                preparedStmt.setString(5,diff);
+                                preparedStmt.setString(6,amount);
+                                preparedStmt.setString(7,apl);
+                                preparedStmt.setString(8,mil);
+                                preparedStmt.addBatch();
+                            } catch (SQLException ex) {
+                                Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
+                            }                   break;
+                        }
+                    case "WATER":
+                    {
+                        String query="INSERT INTO water(VEHICLENO,INITIAL,FINAL,DESCRIPTION,DIFFERENCE,AMOUNT,APL,MILEAGE) values (?,?,?,?,?,?,?,?)";
+                        try {
+                            preparedStmt = con.prepareStatement(query);
+                            preparedStmt.setString(1,Vehicle);
+                            preparedStmt.setString(2,init);
+                            preparedStmt.setString(3,fin);
+                            preparedStmt.setString(4,Description);
+                            preparedStmt.setString(5,diff);
+                            preparedStmt.setString(6,amount);
+                            preparedStmt.setString(7,apl);
+                            preparedStmt.setString(8,mil);
+                            preparedStmt.addBatch();
+                        } catch (SQLException ex) {
+                            Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
+                        }                   break;
+                    }
+                    case "SURVEY":
+                    {
+                        String query="INSERT INTO survey(VEHICLENO,INITIAL,FINAL,DESCRIPTION,DIFFERENCE,AMOUNT,APL,MILEAGE) values (?,?,?,?,?,?,?,?)";
+                        try {
+                            preparedStmt = con.prepareStatement(query);
+                            preparedStmt.setString(1,Vehicle);
+                            preparedStmt.setString(2,init);
+            preparedStmt.setString(3,fin);
+            preparedStmt.setString(4,Description);
+            preparedStmt.setString(5,diff);
+            preparedStmt.setString(6,amount);
+            preparedStmt.setString(7,apl);
+            preparedStmt.setString(8,mil);
+            preparedStmt.addBatch();
+                        } catch (SQLException ex) {
+                            Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
+                        }                   break;
+                    }
+                    case "EDUCATION":
+                    {
+                        String query="INSERT INTO education(VEHICLENO,INITIAL,FINAL,DESCRIPTION,DIFFERENCE,AMOUNT,APL,MILEAGE) values (?,?,?,?,?,?,?,?)";
+                        try {
+                            preparedStmt = con.prepareStatement(query);
+                            preparedStmt.setString(1,Vehicle);
+            preparedStmt.setString(2,init);
+            preparedStmt.setString(3,fin);
+            preparedStmt.setString(4,Description);
+            preparedStmt.setString(5,diff);
+            preparedStmt.setString(6,amount);
+            preparedStmt.setString(7,apl);
+            preparedStmt.setString(8,mil);
+            preparedStmt.addBatch();
+                        } catch (SQLException ex) {
+                            Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
+                        }                   break;
+                    }
+                    case "ELECTRICITY":
+                    {
+                        String query="INSERT INTO electricity(VEHICLENO,INITIAL,FINAL,DESCRIPTION,DIFFERENCE,AMOUNT,APL,MILEAGE) values (?,?,?,?,?,?,?,?)";
+                        try {
+                            preparedStmt = con.prepareStatement(query);
             preparedStmt.setString(1,Vehicle);
             preparedStmt.setString(2,init);
             preparedStmt.setString(3,fin);
@@ -255,90 +337,34 @@ public class Upgrade extends javax.swing.JFrame {
             preparedStmt.setString(5,diff);
             preparedStmt.setString(6,amount);
             preparedStmt.setString(7,apl);
+            preparedStmt.setString(8,mil);
             preparedStmt.addBatch();
-        } catch (SQLException ex) {
-            Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            }
-            else if(dept.equals("WATER"))
-                        {String query="INSERT INTO water(VEHICLENO,INITIAL,FINAL,DESCRIPTION,DIFFERENCE,AMOUNT) values (?,?,?,?,?,?)";
-                try {
-            preparedStmt = con.prepareStatement(query);
-            preparedStmt.setString(1,Vehicle);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
+                        }                   break;
+                    }
+                    case "INCOMETAX":
+                    {
+                        String query="INSERT INTO incometax(VEHICLENO,INITIAL,FINAL,DESCRIPTION,DIFFERENCE,AMOUNT,APL,MILEAGE) values (?,?,?,?,?,?,?,?)";
+                        try {
+                            preparedStmt = con.prepareStatement(query);
+                            preparedStmt.setString(1,Vehicle);
             preparedStmt.setString(2,init);
             preparedStmt.setString(3,fin);
             preparedStmt.setString(4,Description);
             preparedStmt.setString(5,diff);
             preparedStmt.setString(6,amount);
             preparedStmt.setString(7,apl);
+            preparedStmt.setString(8,mil);
             preparedStmt.addBatch();
         } catch (SQLException ex) {
             Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            }else if(dept.equals("SURVEY"))
-                        {String query="INSERT INTO survey(VEHICLENO,INITIAL,FINAL,DESCRIPTION,DIFFERENCE,AMOUNT) values (?,?,?,?,?,?)";
-                try {
-            preparedStmt = con.prepareStatement(query);
-            preparedStmt.setString(1,Vehicle);
-            preparedStmt.setString(2,init);
-            preparedStmt.setString(3,fin);
-            preparedStmt.setString(4,Description);
-            preparedStmt.setString(5,diff);
-            preparedStmt.setString(6,amount);
-            preparedStmt.setString(7,apl);
-            preparedStmt.addBatch();
-        } catch (SQLException ex) {
-            Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            }else if(dept.equals("EDUCATION"))
-                        {String query="INSERT INTO education(VEHICLENO,INITIAL,FINAL,DESCRIPTION,DIFFERENCE,AMOUNT) values (?,?,?,?,?,?)";
-                try {
-            preparedStmt = con.prepareStatement(query);
-            preparedStmt.setString(1,Vehicle);
-            preparedStmt.setString(2,init);
-            preparedStmt.setString(3,fin);
-            preparedStmt.setString(4,Description);
-            preparedStmt.setString(5,diff);
-            preparedStmt.setString(6,amount);
-            preparedStmt.setString(7,apl);
-            preparedStmt.addBatch();
-        } catch (SQLException ex) {
-            Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            }else if(dept.equals("ELECTRICITY"))
-                        {String query="INSERT INTO electricity(VEHICLENO,INITIAL,FINAL,DESCRIPTION,DIFFERENCE,AMOUNT) values (?,?,?,?,?,?)";
-                try {
-            preparedStmt = con.prepareStatement(query);
-            preparedStmt.setString(1,Vehicle);
-            preparedStmt.setString(2,init);
-            preparedStmt.setString(3,fin);
-            preparedStmt.setString(4,Description);
-            preparedStmt.setString(5,diff);
-            preparedStmt.setString(6,amount);
-            preparedStmt.setString(7,apl);
-            preparedStmt.addBatch();
-        } catch (SQLException ex) {
-            Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            }else if(dept.equals("INCOMETAX"))
-                        {String query="INSERT INTO incometax(VEHICLENO,INITIAL,FINAL,DESCRIPTION,DIFFERENCE,AMOUNT) values (?,?,?,?,?,?)";
-                try {
-            preparedStmt = con.prepareStatement(query);
-            preparedStmt.setString(1,Vehicle);
-            preparedStmt.setString(2,init);
-            preparedStmt.setString(3,fin);
-            preparedStmt.setString(4,Description);
-            preparedStmt.setString(5,diff);
-            preparedStmt.setString(6,amount);
-            preparedStmt.setString(7,apl);
-            preparedStmt.addBatch();
-        } catch (SQLException ex) {
-            Logger.getLogger(Upgrade.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            }
-            else{
-                System.out.println("Unsuccessful");
-            }
+        }                   break;
+                        }
+                    default:
+                        System.out.println("Unsuccessful");
+                        break;
+                }
                 try {
                     preparedStmt.executeBatch();
                 } catch (SQLException ex) {
@@ -346,6 +372,7 @@ public class Upgrade extends javax.swing.JFrame {
                 }
                 
         }
+            
             JOptionPane.showConfirmDialog(rootPane,"Records added successfully");
             jTable1.removeAll();
             try {
@@ -355,7 +382,7 @@ public class Upgrade extends javax.swing.JFrame {
             }
 }
     }//GEN-LAST:event_jButton3ActionPerformed
-
+    
     private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
         // TODO add your handling code here:
         Login n = new Login();

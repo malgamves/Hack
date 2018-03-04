@@ -21,7 +21,7 @@ public class HA_Dashboard extends javax.swing.JFrame {
     public HA_Dashboard() {
         initComponents();
     }
-String d="";
+String d="--";
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -163,11 +163,6 @@ String d="";
                 jButton7MouseClicked(evt);
             }
         });
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
 
         jLabel8.setText("jLabel8");
 
@@ -208,16 +203,6 @@ String d="";
         );
 
         jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/1f5fa.png"))); // NOI18N
-        jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton12MouseClicked(evt);
-            }
-        });
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
-            }
-        });
 
         jLabel13.setText("jLabel13");
 
@@ -258,16 +243,6 @@ String d="";
         );
 
         jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/1f4a7.png"))); // NOI18N
-        jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton11MouseClicked(evt);
-            }
-        });
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
-            }
-        });
 
         jLabel12.setText("jLabel12");
 
@@ -310,16 +285,6 @@ String d="";
         );
 
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/1f68c.png"))); // NOI18N
-        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton9MouseClicked(evt);
-            }
-        });
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
 
         jLabel10.setText("jLabel10");
 
@@ -360,16 +325,6 @@ String d="";
         );
 
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/1f4b0.png"))); // NOI18N
-        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton10MouseClicked(evt);
-            }
-        });
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
-            }
-        });
 
         jLabel11.setText("jLabel11");
 
@@ -412,16 +367,6 @@ String d="";
         jLabel9.setText("jLabel9");
 
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/1f4d8.png"))); // NOI18N
-        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton8MouseClicked(evt);
-            }
-        });
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
 
         jLabel15.setText("jLabel15");
 
@@ -553,30 +498,6 @@ String d="";
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
-
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
-
     private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
         // TODO add your handling code here:
         Login n = new Login();
@@ -591,72 +512,16 @@ String d="";
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         // TODO add your handling code here:
-        Dept_Report dp = new Dept_Report();
+        Dept_Report dr=new Dept_Report();
         d=jLabel16.getText();
         try {
-            dp.set(d);
+            dr.set(d);
         } catch (SQLException ex) {
             Logger.getLogger(HA_Dashboard.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        dp.setVisible(true);
+        dr.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton7MouseClicked
-
-    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
-        // TODO add your handling code here:
-        Dept_Report dp = new Dept_Report();
-        try {
-            dp.set(jLabel22.getText());
-        } catch (SQLException ex) {
-            Logger.getLogger(HA_Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        dp.setVisible(true);
-    }//GEN-LAST:event_jButton8MouseClicked
-
-    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
-        // TODO add your handling code here:
-        Dept_Report dp = new Dept_Report();
-        try {
-            dp.set(jLabel23.getText());
-        } catch (SQLException ex) {
-            Logger.getLogger(HA_Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        dp.setVisible(true);
-    }//GEN-LAST:event_jButton9MouseClicked
-
-    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
-        // TODO add your handling code here:
-        Dept_Report dp = new Dept_Report();
-        try {
-            dp.set(jLabel24.getText());
-        } catch (SQLException ex) {
-            Logger.getLogger(HA_Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        dp.setVisible(true);
-    }//GEN-LAST:event_jButton10MouseClicked
-
-    private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
-        try {
-            // TODO add your handling code here:
-            Dept_Report dp = new Dept_Report();
-            
-            dp.set(jLabel25.getText());
-        } catch (SQLException ex) {       
-            Logger.getLogger(HA_Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       
-    }//GEN-LAST:event_jButton11MouseClicked
-
-    private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
-        // TODO add your handling code here:
-        Dept_Report dp = new Dept_Report();
-        try {
-            dp.set(jLabel26.getText());
-        } catch (SQLException ex) {
-            Logger.getLogger(HA_Dashboard.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        dp.setVisible(true);
-    }//GEN-LAST:event_jButton12MouseClicked
 
     /**
      * @param args the command line arguments
