@@ -7,12 +7,15 @@ Open data initiative desktop app for Municipal associations
 - Setup JDBC 
 
 # Screenshots
-Login Page
+Login Page <br>
 ![Login](https://github.com/malgamves/Vizible/blob/master/Images/1.png)
-First Dashboard
+<br>
+First Dashboard <br>
 ![Login](https://github.com/malgamves/Vizible/blob/master/Images/2.png)
-Second Dashboard
+<br>
+Second Dashboard <br>
 ![Login](https://github.com/malgamves/Vizible/blob/master/Images/3.png)
+<br>
 
 
 # Precaustions
